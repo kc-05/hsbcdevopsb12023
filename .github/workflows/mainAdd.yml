@@ -1,0 +1,23 @@
+name: Add Numbers Workflow
+
+on: [push]
+
+jobs:
+  add_numbers:
+    name: Add Numbers
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Run JavaScript Script
+        run: |
+          result=$(echo "$((1 + 2))")
+          echo "The sum of 1 and 2 is $result"
+
